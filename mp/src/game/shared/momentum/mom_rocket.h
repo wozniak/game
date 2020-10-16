@@ -16,7 +16,7 @@ class CMomRocket : public CMomExplosive
 
 #ifdef CLIENT_DLL
     float GetDrawDelayTime() override;
-    void CreateTrailParticles() override;
+    CNewParticleEffect *CreateTrailParticles() override;
 
 #else
     float GetDamageAmount() override { return 90.0f; }

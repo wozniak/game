@@ -143,12 +143,12 @@ float CMomStickybomb::GetDrawDelayTime()
     return mom_sj_stickybomb_drawdelay.GetFloat();
 }
 
-void CMomStickybomb::CreateTrailParticles()
+CNewParticleEffect *CMomStickybomb::CreateTrailParticles()
 {
     if (!mom_sj_particle_trail_enable.GetBool())
-        return;
+        return nullptr;
 
-    ParticleProp()->Create(g_pWeaponDef->GetWeaponParticle(WEAPON_STICKYLAUNCHER, "StickybombTrail"), PATTACH_ABSORIGIN_FOLLOW);
+    return ParticleProp()->Create(g_pWeaponDef->GetWeaponParticle(WEAPON_STICKYLAUNCHER, "StickybombTrail"), PATTACH_ABSORIGIN_FOLLOW);
 }
 
 void CMomStickybomb::OnDataChanged(DataUpdateType_t type)

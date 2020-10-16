@@ -58,12 +58,12 @@ float CMomRocket::GetDrawDelayTime()
     return mom_rj_rocket_drawdelay.GetFloat();
 }
 
-void CMomRocket::CreateTrailParticles()
+CNewParticleEffect *CMomRocket::CreateTrailParticles()
 {
     if (!mom_rj_particle_trail_enable.GetBool())
-        return;
+        return nullptr;
 
-    ParticleProp()->Create(g_pWeaponDef->GetWeaponParticle(WEAPON_ROCKETLAUNCHER, "RocketTrail"), PATTACH_POINT_FOLLOW, "trail");
+    return ParticleProp()->Create(g_pWeaponDef->GetWeaponParticle(WEAPON_ROCKETLAUNCHER, "RocketTrail"), PATTACH_POINT_FOLLOW, "trail");
 }
 
 #else

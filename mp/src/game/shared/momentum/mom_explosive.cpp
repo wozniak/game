@@ -40,6 +40,13 @@ CMomExplosive::CMomExplosive()
 #endif
 }
 
+#ifdef CLIENT_DLL
+CMomExplosive::~CMomExplosive()
+{
+    if (m_pTrailParticle)
+        ParticleProp()->StopEmissionAndDestroyImmediately(m_pTrailParticle);
+}
+#endif
 
 void CMomExplosive::Spawn()
 {
@@ -77,7 +84,7 @@ void CMomExplosive::OnDataChanged(DataUpdateType_t updateType)
     {
         InitializeInterpolationVelocity();
 
-        CreateTrailParticles();
+        m_pTrailParticle = CreateTrailParticles();
     }
 }
 

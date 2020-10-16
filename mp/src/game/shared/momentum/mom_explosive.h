@@ -17,12 +17,15 @@ public:
     DECLARE_NETWORKCLASS();
 
     CMomExplosive();
+#ifdef CLIENT_DLL
+    ~CMomExplosive();
+#endif
 
     void Spawn() override;
     
 #ifdef CLIENT_DLL
     virtual float GetDrawDelayTime() { return 0.0f; }
-    virtual void CreateTrailParticles() { }
+    virtual CNewParticleEffect *CreateTrailParticles() { return nullptr; }
 
     int DrawModel(int flags) override;
     void OnDataChanged(DataUpdateType_t updateType) override;
@@ -42,6 +45,8 @@ private:
 
 #ifdef CLIENT_DLL
     void InitializeInterpolationVelocity();
+
+    CNewParticleEffect *m_pTrailParticle;
 #else
     float m_fDamage;
 #endif

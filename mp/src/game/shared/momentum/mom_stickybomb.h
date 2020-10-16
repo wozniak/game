@@ -27,7 +27,7 @@ class CMomStickybomb : public CMomExplosive
     void SetCanExplode(bool bCanExplode) { m_bCanExplode.Set(bCanExplode); }
 #ifdef CLIENT_DLL
     float GetDrawDelayTime() override;
-    void CreateTrailParticles() override;
+    CNewParticleEffect *CreateTrailParticles() override;
 
     void OnDataChanged(DataUpdateType_t type) OVERRIDE;
     void Simulate() OVERRIDE;
