@@ -549,7 +549,6 @@ CBasePlayer::CBasePlayer( )
 	m_pSurfaceData = NULL;
 	m_surfaceFriction = 1.0f;
 	m_chTextureType = 0;
-	m_chPreviousTextureType = 0;
 
 	m_iSuicideCustomKillFlags = 0;
 	m_fDelay = 0.0f;
